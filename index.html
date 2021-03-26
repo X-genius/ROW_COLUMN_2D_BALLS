@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang = "en">
+      <head>
+            <title>Count Ball Project</title>
+            <link rel = "icon" href="ball.png">
+            <link rel = "stylesheet" href = "Ball.css">
+            <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@900&display=swap" rel="stylesheet">
+      </head>
+          
+      <body>
+            <h1 id = "heading-of-balls">Present Number of Balls in UI</h1>
+            <form id = "Form-of-balls">
+                  <label id = "ball-label">Number of balls : </label>
+                  <input type ="number" placeholder = "Number of balls" id = "col-input"/>
+                  <label id = "row-label">Enter The Rows : </label>
+                  <input type ="number" placeholder = "Enter The Rows" id = "row-input"/>
+                  <button type = "button" id = "submit-btn" onclick="ballShowFun()">Submit</button>
+            </form> 
+
+            <script>
+                
+                let flag = 0;
+                
+                function ballShowFun()
+                {
+                    if (flag == 1)
+                    {
+                        let a = document.getElementById('table');
+                        a.remove();   
+                    }
+                    
+                    else
+                    {
+                        flag = 1;
+                    }
+                    
+                   let x = document.createElement("TABLE");
+                   x.setAttribute('id','table');
+                   document.body.appendChild(x);
+                   let row = document.getElementById("row-input").value;
+                   let col = document.getElementById("col-input").value;
+        
+                   for(let r = 0; r < parseInt(row , 10); r++)
+                       {
+                           let y = x.insertRow(r);
+                           for(let c = 0; c < parseInt(col , 10); c++)
+                               {
+                                   let Col =  y.insertCell(c);
+                                   Col.innerHTML = "<div class = 'balls' id = 'red'></div>";
+                               }
+                       }
+
+                }
+            </script>
+      </body> 
+</html>
