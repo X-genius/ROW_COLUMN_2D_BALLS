@@ -15,36 +15,31 @@
                   <label id = "row-label">Enter The Rows : </label>
                   <input type ="number" placeholder = "Enter The Rows" id = "row-input"/>
                   <button type = "button" id = "submit-btn" onclick="ballShowFun()">Submit</button>
-                  <button type = "button" id = "refresh-btn" value = "Refresh" onclick="history.go(0)">Refresh</button>
             </form> 
-          <div id='container'>
-          
-          </div>
 
+          
             <script>
+               let ball = document.createElement('DIV');
+               ball.classList.add('balls');
+               ball.setAttribute('id','red');
+               let flag = 0;
                 
-                let flag = 0;
                 function ballShowFun()
                 {
-                    let a = document.getElementsByClassName('row');
+                   if (flag == 1)
+                   {
+                     document.getElementById('container').remove();
+                   }
                     
-                    if (flag == 1)
-                    {
-                        a.remove();
-                    }
-                    
-                    else
-                    {
-                        flag = 1;
-                    }
+                   let container = document.createElement('DIV');
+                   container.setAttribute('id','container');
+                   document.body.appendChild(container);
+                   flag = 1;
                     
                    let x;
                    let row = document.getElementById("row-input").value;
-                   let col = document.getElementById("col-input").value;
-                   let ball = document.createElement('DIV');
-                   ball.classList.add('balls');
-                   ball.setAttribute('id','red');
-        
+                   let col = document.getElementById("col-input").value;  
+                    
                    for(let r = 0; r < parseInt(row , 10); r++)
                    {
                       x = document.createElement('DIV');
@@ -55,8 +50,7 @@
                       {
                          x.classList.add("marginLeftPresent");      
                       }
-                             
-                           
+                                
                       for(let c = 0; c < parseInt(col , 10); c++)
                       {   
                          x.innerHTML += '<div class="balls" id="red"></div>';
