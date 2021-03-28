@@ -33,6 +33,16 @@
     outline: none;
 }
 
+#row-input:focus
+{
+    outline: none;
+}
+
+#col-input
+{
+    outline: none;
+}
+
 #submit-btn
 {
     font-size: 20px;
@@ -47,9 +57,20 @@
     border-radius: 50%;
     width: 50px;
     height: 50px;
+    margin: -3px -2px;
+}
+
+.row
+{
+    display: flex;
 }
 
 #red
 {
     background: red;
+}
+
+.marginLeftPresent
+{
+    padding-left: 24px!important;
 }

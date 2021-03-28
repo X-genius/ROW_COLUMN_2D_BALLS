@@ -16,17 +16,20 @@
                   <input type ="number" placeholder = "Enter The Rows" id = "row-input"/>
                   <button type = "button" id = "submit-btn" onclick="ballShowFun()">Submit</button>
             </form> 
+          <div id='container'>
+          
+          </div>
 
             <script>
                 
                 let flag = 0;
-                
                 function ballShowFun()
                 {
+                    let a = document.getElementsByClassName('row');
+                    
                     if (flag == 1)
                     {
-                        let a = document.getElementById('table');
-                        a.remove();   
+                        a.remove();
                     }
                     
                     else
@@ -34,21 +37,30 @@
                         flag = 1;
                     }
                     
-                   let x = document.createElement("TABLE");
-                   x.setAttribute('id','table');
-                   document.body.appendChild(x);
+                   let x;
                    let row = document.getElementById("row-input").value;
                    let col = document.getElementById("col-input").value;
+                   let ball = document.createElement('DIV');
+                   ball.classList.add('balls');
+                   ball.setAttribute('id','red');
         
                    for(let r = 0; r < parseInt(row , 10); r++)
-                       {
-                           let y = x.insertRow(r);
-                           for(let c = 0; c < parseInt(col , 10); c++)
-                               {
-                                   let Col =  y.insertCell(c);
-                                   Col.innerHTML = "<div class = 'balls' id = 'red'></div>";
-                               }
-                       }
+                   {
+                      x = document.createElement('DIV');
+                      document.getElementById('container').appendChild(x);
+                      x.classList.add('row');
+
+                      if(r % 2 == 0)
+                      {
+                         x.classList.add("marginLeftPresent");      
+                      }
+                             
+                           
+                      for(let c = 0; c < parseInt(col , 10); c++)
+                      {   
+                         x.innerHTML += '<div class="balls" id="red"></div>'
+                      }
+                    }
 
                 }
             </script>
