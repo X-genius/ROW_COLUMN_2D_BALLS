@@ -15,6 +15,7 @@
                   <label id = "row-label">Enter The Rows : </label>
                   <input type ="number" placeholder = "Enter The Rows" id = "row-input"/>
                   <button type = "button" id = "submit-btn" onclick="ballShowFun()">Submit</button>
+                  <button type = "button" id = "refresh-btn" value = "Refresh" onclick="history.go(0)">Refresh</button>
             </form> 
           <div id='container'>
           
@@ -58,10 +59,9 @@
                            
                       for(let c = 0; c < parseInt(col , 10); c++)
                       {   
-                         x.innerHTML += '<div class="balls" id="red"></div>'
+                         x.innerHTML += '<div class="balls" id="red"></div>';
                       }
                     }
-
                 }
             </script>
       </body> 
